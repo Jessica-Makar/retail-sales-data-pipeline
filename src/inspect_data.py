@@ -166,3 +166,23 @@ print(
     "Order items with unknown seller_id:",
     unknown_sellers.sum(),
 )
+
+
+# Inspect the order timestamp columns before database loading
+timestamp_columns = [
+    "order_purchase_timestamp",
+    "order_approved_at",
+    "order_delivered_carrier_date",
+    "order_delivered_customer_date",
+    "order_estimated_delivery_date",
+]
+
+print("\nTimestamp column samples:")
+print(orders_df[timestamp_columns].head(5).to_string(index=False))
+
+print("\nTimestamp values that cannot be parsed:")
+for column in timestamp_columns:
+    parsed_dates = pd.to_datetime(orders_df[column], errors="coerce")
+    invalid_dates = orders_df[column].notna() & parsed_dates.isna()
+
+    print(f"{column}: {invalid_dates.sum()}")
