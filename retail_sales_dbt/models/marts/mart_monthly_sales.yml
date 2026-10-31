@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: mart_monthly_sales
+    description: "Monthly summary of delivered-order payment value and order counts."
+
+    columns:
+      - name: order_month
+        description: "First day of the month in which the order was placed."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: delivered_order_count
+        description: "Number of delivered orders with payment information."
+        data_tests:
+          - not_null
+
+      - name: total_sales
+        description: "Sum of payment values for delivered orders with payment information."
+        data_tests:
+          - not_null
+
+      - name: average_order_value
+        description: "Average payment value per delivered order."
+        data_tests:
+          - not_null

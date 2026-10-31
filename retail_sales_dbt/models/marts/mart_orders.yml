@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: mart_orders
+    description: "Order-level reporting mart combining order details, payment summaries, and review summaries."
+
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_unique_id
+        description: "Identifier linking orders belonging to the same customer."
+        data_tests:
+          - not_null
+
+      - name: order_status
+        description: "Current status of the order."
+        data_tests:
+          - not_null
+
+      - name: total_payment_value
+        description: "Total payment value associated with the order; may be null when no payment summary exists."
+
+      - name: payment_record_count
+        description: "Number of payment records associated with the order."
+
+      - name: review_count
+        description: "Number of review records associated with the order; may be null when no review summary exists."
+
+      - name: average_review_score
+        description: "Average review score for the order; may be null when no review summary exists."

@@ -1,0 +1,18 @@
+
+version: 2
+
+sources:
+  - name: olist
+    description: "Raw Olist e-commerce data loaded into PostgreSQL staging tables."
+    schema: public
+
+    tables:
+      - name: stg_orders
+      - name: stg_customers
+      - name: stg_products
+      - name: stg_sellers
+      - name: stg_order_items
+      - name: stg_payments
+      - name: stg_reviews
+      - name: stg_geolocation
+      - name: stg_category_translation

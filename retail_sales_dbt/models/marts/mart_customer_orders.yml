@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: mart_customer_orders
+    description: "Customer-level summary of order activity, including repeat-purchase classification."
+
+    columns:
+      - name: customer_unique_id
+        description: "Identifier linking order records belonging to the same customer."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: total_orders
+        description: "Total number of distinct orders placed by the customer."
+        data_tests:
+          - not_null
+
+      - name: first_order_date
+        description: "Timestamp of the customer's first order."
+        data_tests:
+          - not_null
+
+      - name: most_recent_order_date
+        description: "Timestamp of the customer's most recent order."
+        data_tests:
+          - not_null
+
+      - name: customer_type
+        description: "Whether the customer placed one order or multiple orders."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - one_time
+                  - repeat

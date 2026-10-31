@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_order_reviews
+    description: "Review metrics aggregated to one row per order."
+
+    columns:
+      - name: order_id
+        description: "Unique identifier for an order with at least one review."
+        data_tests:
+          - unique
+          - not_null
+          
+      - name: average_review_score
+        description: "Average review score for an order, rounded to two decimals."
+        data_tests:
+          - not_null

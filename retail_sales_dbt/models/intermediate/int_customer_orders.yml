@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_customer_orders
+    description: "Order-level data enriched with customer attributes."
+
+    columns:
+      - name: order_id
+        description: "Unique identifier for an order."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: "Customer associated with the order."
+        data_tests:
+          - not_null
+
+      - name: order_status
+        description: "Current status of the order."
+        data_tests:
+          - not_null

@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: int_order_payments
+    description: "Payment metrics aggregated to one row per order."
+
+    columns:
+      - name: order_id
+        description: "Unique identifier for an order with payment records."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: total_payment_value
+        description: "Total payment value across all payment records for an order."
+        data_tests:
+          - not_null
+
+      - name: payment_record_count
+        description: "Number of payment records associated with an order."
+        data_tests:
+          - not_null
+
+      - name: max_installments
+        description: "Maximum installment count across payment records for an order."
+        data_tests:
+          - not_null
+
+      - name: payment_types
+        description: "Distinct payment types used for an order."
+        data_tests:
+          - not_null
