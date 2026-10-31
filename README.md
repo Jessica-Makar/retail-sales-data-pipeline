@@ -7,6 +7,12 @@ This project builds an end-to-end data engineering pipeline using retail e-comme
 
 The pipeline will ingest raw data, clean and validate it with Python, store it in PostgreSQL, transform it into analytics-ready tables using dbt, and present business insights through Tableau.
 
+## Project Architecture
+
+The pipeline processes raw Olist e-commerce data through Python, PostgreSQL, and dbt to produce analytics-ready data for Tableau dashboards.
+
+![Project Architecture](docs/images/project-architecture.png)
+
 ## Project Goals
 
 - Build a repeatable ETL pipeline using Python.
